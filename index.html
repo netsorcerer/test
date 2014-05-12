@@ -3,12 +3,16 @@
 <script>
 $(document).ready(function(){
         
-//     $.ajax({url:"http://a3presources_erp_ajax.php?action=show_item&item_id="+item_id,success:function(result){
-      $("#show_it").html('rendered by jquery');
-//   }});
-
+     $.ajax({url:"http://a3ptech.com/resources_app.php?",success:function(result){
+      $("#show_it").html(result);   
+     }});
+ 
    
 });
 
 </script>
+Alec's App
+<br>
+Below is some data pulled from a3p database.
+<br>
 <div id="show_it"></div>
