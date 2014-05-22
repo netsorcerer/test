@@ -1,17 +1,29 @@
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<style>
+body    {
+    color: white;
+}
+</style>
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
 
 <script>
 $(document).ready(function(){
-        
+if(null!= GetQueryStringParams('t')) {
+    var t=GetQueryStringParams('t');
+     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
+      $("#show_it").html(result);   
+     }});
+}       
+else    {
+    
      $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
       $("#show_it").html(result);   
      }});
-    alert(GetQueryStringParams('technology'));
-)); 
+}//t is null 
+   
 });
 
-function GetQueryStringParams(sParam)	{
+function GetQueryStringParams(sParam)    {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++)
@@ -24,7 +36,7 @@ function GetQueryStringParams(sParam)	{
             return sParameterName[1];
         }
     }
-}​
+}
 </script>
 Alec's App
 <br>
