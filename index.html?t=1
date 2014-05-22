@@ -40,6 +40,5 @@ function GetQueryStringParams(sParam)    {
 </script>
 Alec's App
 <br>
-Below is some data pulled from a3p database.
 <br>
 <div id="show_it"></div>
