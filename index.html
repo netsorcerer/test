@@ -45,6 +45,10 @@ a.button1:active, table.display1 a.button1:active
 
 <script>
 $(document).ready(function(){
+    var status = navigator.onLine ? 'online' : 'offline';
+       if(status=="offline"){
+        alert(status);  
+       }
 if(null!= GetQueryStringParams('t')) {
     var t=GetQueryStringParams('t');
      $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
