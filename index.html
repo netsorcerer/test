@@ -4,6 +4,42 @@ body    {
     color: white;
     background-color: black;
 }
+/* --------Button type styling of links--------    */
+a.button1, table.display1 a.button1
+    {
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 1px 2px;
+    margin: 2px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: white;
+    background-image: url("../images/pp_button_bg.jpg");
+    background-repeat:repeat-x;
+    }
+
+a.button1:hover, table.display1 a.button1:hover
+    {
+    color: black;
+    background-image: none;
+    background-color: #BEBA7D;
+    border: 1px solid black;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    }
+
+a.button1:active, table.display1 a.button1:active 
+    {
+    border: 1px solid black;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: green;
+    background-image: none;
+    background-color: rgb(230,220,210);
+    }
+
 </style>
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
 
@@ -39,7 +75,7 @@ function GetQueryStringParams(sParam)    {
     }
 }
 </script>
-Alec's App
+<p style="text-align: center; font-weight: bold; text-decoration: underline;">Alec's App</p>
 <br>
 <br>
 <div id="show_it"></div>
