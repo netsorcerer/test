@@ -31,6 +31,19 @@
         alert('Connection type: ' + states[networkState]);
     }
 
+    if(null!= GetQueryStringParams('t')) {
+    var t=GetQueryStringParams('t');
+     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
+      $("#show_it").html(result);   
+     }});
+}       
+else    {
+    
+     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
+      $("#show_it").html(result);   
+     }});
+}//t is null 
+
     </script>
   </head>
   <body>
