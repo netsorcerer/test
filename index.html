@@ -14,6 +14,24 @@
     //
     function onDeviceReady() {
         checkConnection();
+        
+        
+  
+      if(null!= GetQueryStringParams('t')) {
+    var t=GetQueryStringParams('t');
+     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
+      $("#show_it").html(result);   
+     }});
+}       
+else    {
+    
+     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
+      $("#show_it").html(result);   
+     }});
+}//t is null 
+
+  
+        
     }
 
     function checkConnection() {
@@ -31,23 +49,11 @@
         alert('Connection type: ' + states[networkState]);
     }
 
-    if(null!= GetQueryStringParams('t')) {
-    var t=GetQueryStringParams('t');
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
-      $("#show_it").html(result);   
-     }});
-}       
-else    {
-    
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
-      $("#show_it").html(result);   
-     }});
-}//t is null 
 
     </script>
   </head>
   <body>
     <p>A dialog box will report the network state.</p>
-    <div id="show_it"></div>
+    
   </body>
 </html>
