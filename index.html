@@ -45,12 +45,14 @@ a.button1:active, table.display1 a.button1:active
 
 <script>
 $(document).ready(function(){
-    var status = navigator.onLine ? 'online' : 'offline';
-        alert(status);  
-       if(status=="offline"){
-        alert(status);  
-       }
-       else {
+var isOffline = 'onLine' in navigator && !navigator.onLine;
+
+if ( isOffline ) {
+    alert('offline');
+    //local db
+}
+else {
+    // internet data
 if(null!= GetQueryStringParams('t')) {
     var t=GetQueryStringParams('t');
      $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
@@ -63,6 +65,7 @@ else    {
       $("#show_it").html(result);   
      }});
 }//t is null 
+
        }//online or not  
 });
 
