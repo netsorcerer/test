@@ -42,27 +42,11 @@ a.button1:active, table.display1 a.button1:active
 
 </style>
 <script type='text/javascript' src='jq1_9.js'></script>
-
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
 <script>
 $(document).ready(function(){
-
-    function checkConnection() {
-    var networkState = navigator.connection.type;
-
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
-
-    alert('Connection type: ' + states[networkState]);
-}
-
-checkConnection();
+    var x = "Is the browser online? " + navigator.onLine;
+    $("#demo").html(x); 
     
 if(null!= GetQueryStringParams('t')) {
     var t=GetQueryStringParams('t');
@@ -96,5 +80,6 @@ function GetQueryStringParams(sParam)    {
 </script>
 <p style="text-align: center; font-weight: bold; text-decoration: underline;">Alec's App(2)</p>
 <br>
+<p id="demo"></p>
 <br>
 <div id="show_it"></div>
