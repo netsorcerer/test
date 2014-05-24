@@ -41,7 +41,7 @@ a.button1:active, table.display1 a.button1:active
     }
 
 </style>
-<script type='text/javascript' src='jq1_9.js'></script>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <style>
 body    {
@@ -85,71 +85,43 @@ a.button1:active, table.display1 a.button1:active
     }
 
 </style>
-<script type='text/javascript' src='jq1_9.js'></script>
-<script>
-
-// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-function onDeviceReady() {
-navigator.network.isReachable("google.com", reachableCallback, {});
-}
-// Check network status
-function reachableCallback(reachability) {
-  // There is no consistency on the format of reachability
-  var networkState = reachability.code || reachability;
-  var states = {};
-  states[NetworkStatus.NOT_REACHABLE]                      = 'No network connection';
-  states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
-  states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK]         = 'WiFi connection';
-  if (networkState != 0) online = true;
-}
-var online = navigator.onLine || false;
-//Now if you about to make an AJAX call to load up some dynamic data, you can easily check to see if you're online
-if(online) {
-    alert('online');
-  // make a request
-} else {
-    alert('offline');
-  // load from localStorage
-}
-
-
-
-    
-if(null!= GetQueryStringParams('t')) {
-    var t=GetQueryStringParams('t');
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
-      $("#show_it").html(result);   
-     }});
-}       
-else    {
-    
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
-      $("#show_it").html(result);   
-     }});
-}//t is null 
-
-
-function GetQueryStringParams(sParam)    {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
-
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
-
-            return sParameterName[1];
-        }
-    }
-}
-</script>
 <p style="text-align: center; font-weight: bold; text-decoration: underline;">Alec's App(2)</p>
 <br>
-<p id="demo"></p>
 <br>
-<div id="show_it"></div>
-<script type="">
+
+
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for PhoneGap to load
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
+
+        alert('Connection type: ' + states[networkState]);
+    }
+
+    </script>
+
+
+
+<script>
 $(document).ready(function(){
 
   
@@ -183,8 +155,5 @@ function GetQueryStringParams(sParam)    {
     }
 }
 </script>
-<p style="text-align: center; font-weight: bold; text-decoration: underline;">Alec's App(2)</p>
-<br>
-<p id="demo"></p>
 <br>
 <div id="show_it"></div>
