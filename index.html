@@ -49,6 +49,7 @@ $(document).ready(function(){
        if(status=="offline"){
         alert(status);  
        }
+       else {
 if(null!= GetQueryStringParams('t')) {
     var t=GetQueryStringParams('t');
      $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
@@ -61,7 +62,7 @@ else    {
       $("#show_it").html(result);   
      }});
 }//t is null 
-   
+       }//online or not  
 });
 
 function GetQueryStringParams(sParam)    {
