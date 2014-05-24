@@ -42,7 +42,6 @@ a.button1:active, table.display1 a.button1:active
 
 </style>
 <script type='text/javascript' src='jq1_9.js'></script>
-<script>
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <style>
 body    {
@@ -104,21 +103,14 @@ function reachableCallback(reachability) {
   if (networkState != 0) online = true;
 }
 var online = navigator.onLine || false;
-$(document).ready(function() { 
-  $(document).bind('deviceready', function(){
-    onDeviceReady()
-  })
-  // Your main code
-})
 //Now if you about to make an AJAX call to load up some dynamic data, you can easily check to see if you're online
 if(online) {
-    alert('omline');
+    alert('online');
   // make a request
 } else {
     alert('offline');
   // load from localStorage
 }
-
 
 
 
@@ -157,6 +149,7 @@ function GetQueryStringParams(sParam)    {
 <p id="demo"></p>
 <br>
 <div id="show_it"></div>
+<script type="">
 $(document).ready(function(){
 
   
