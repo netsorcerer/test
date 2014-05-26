@@ -100,12 +100,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 //    alert('phonegap is ready');
 $.ajaxSetup({
-    timeout: 1000, // Microseconds, for the laughs.  Guaranteed timeout.
-    error: function(request, status, maybe_an_exception_object) {
-        if(status == 'timeout')
-            alert("Internet connection is down!");
-    }
-});
+//    timeout: 1000, // Microseconds, for the laughs.  Guaranteed timeout.
+//    error: function(request, status, maybe_an_exception_object) {
+//        if(status == 'timeout')
+//            alert("Internet connection is down!");
+//    }
+//});
   
 if(null!= GetQueryStringParams('t')) {
     var t=GetQueryStringParams('t');
