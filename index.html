@@ -106,6 +106,20 @@ function onDeviceReady() {
 //            alert("Internet connection is down!");
 //    }
 //});
+if(null!= GetQueryStringParams('t')) {
+    var t=GetQueryStringParams('t');
+     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
+      $("#show_it").html(result);   
+     }});
+}       
+else    {
+    
+     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
+      $("#show_it").html(result);   
+     }});
+}//t is null 
+
+
 function GetQueryStringParams(sParam)    {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
@@ -122,18 +136,6 @@ function GetQueryStringParams(sParam)    {
 }
 
   
-if(null!= GetQueryStringParams('t')) {
-    var t=GetQueryStringParams('t');
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
-      $("#show_it").html(result);   
-     }});
-}       
-else    {
-    
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
-      $("#show_it").html(result);   
-     }});
-}//t is null 
 
 
     // Now safe to use the PhoneGap API
@@ -144,3 +146,4 @@ else    {
 </script>
 <br>
 <div id="show_it"></div>
+another div
