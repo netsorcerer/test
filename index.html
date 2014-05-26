@@ -99,13 +99,28 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 //    alert('phonegap is ready');
-$.ajaxSetup({
-//    timeout: 1000, // Microseconds, for the laughs.  Guaranteed timeout.
+//$.ajaxSetup({
+//    timeout: 100, // Microseconds, for the laughs.  Guaranteed timeout.
 //    error: function(request, status, maybe_an_exception_object) {
 //        if(status == 'timeout')
 //            alert("Internet connection is down!");
 //    }
 //});
+function GetQueryStringParams(sParam)    {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+
+            return sParameterName[1];
+        }
+    }
+}
+
   
 if(null!= GetQueryStringParams('t')) {
     var t=GetQueryStringParams('t');
@@ -121,20 +136,6 @@ else    {
 }//t is null 
 
 
-function GetQueryStringParams(sParam)    {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
-
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
-
-            return sParameterName[1];
-        }
-    }
-}
     // Now safe to use the PhoneGap API
 }
 
