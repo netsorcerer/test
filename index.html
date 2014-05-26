@@ -95,45 +95,15 @@ a.button1:active, table.display1 a.button1:active
 
 
 <script>
-$(document).ready(function(){
-$.ajaxSetup({
-    alert('m');
-    timeout: 1000, // Microseconds, for the laughs.  Guaranteed timeout.
-    error: function(request, status, maybe_an_exception_object) {
-        if(status == 'timeout')
-            alert("Internet connection is down!");
-    }
-});
-  
-if(null!= GetQueryStringParams('t')) {
-    var t=GetQueryStringParams('t');
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
-      $("#show_it").html(result);   
-     }});
-}       
-else    {
-    
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
-      $("#show_it").html(result);   
-     }});
-}//t is null 
+document.addEventListener("deviceready", onDeviceReady, false);
 
-});
-
-function GetQueryStringParams(sParam)    {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
-
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
-
-            return sParameterName[1];
-        }
-    }
+function onDeviceReady() {
+    alert('phonegap is ready');
+    // Now safe to use the PhoneGap API
 }
+
+
+
 </script>
 <br>
 <div id="show_it"></div>
