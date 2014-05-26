@@ -2,17 +2,17 @@
 <html>
   <head>
     <title>navigator.network.connection.type Example</title>
+<script src="jq1_9.js"></script>
 
     <script type="text/javascript" charset="utf-8">
 
     // Wait for PhoneGap to load
     // 
-    document.addEventListener("deviceready", onDeviceReady, false);
+//    document.addEventListener("deviceready", onDeviceReady, false);
 
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
-    function onDeviceReady() {
-      alert('ready');
+$(document).ready(function(){
         checkConnection();
         
         
@@ -32,19 +32,17 @@ else    {
 
   
         
-    }
+    })
 
     function checkConnection() {
-         var networkState = navigator.connection.type;
-
-    if (networkState == Connection.NONE)
-    {
-        alert('No network connection!');
-    }
-        alert('Connection type: ' + states[networkState]);
-    }
-
-    }
+//        var networkState = navigator.connection.type;
+//
+//    if (networkState == Connection.NONE)
+//    {
+//        alert('No network connection!');
+//    }
+//        alert('Connection type: ' + states[networkState]);
+//    }
 
 
     </script>
