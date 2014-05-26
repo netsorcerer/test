@@ -97,6 +97,7 @@ a.button1:active, table.display1 a.button1:active
 <script>
 $(document).ready(function(){
 $.ajaxSetup({
+    alert('m');
     timeout: 1000, // Microseconds, for the laughs.  Guaranteed timeout.
     error: function(request, status, maybe_an_exception_object) {
         if(status == 'timeout')
