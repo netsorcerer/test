@@ -1,23 +1,110 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>navigator.network.connection.type Example</title>
-<script src="jq1_9.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<style>
+body    {
+    color: white;
+    background-color: black;
+}
+/* --------Button type styling of links--------    */
+a.button1, table.display1 a.button1
+    {
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 1px 2px;
+    margin: 2px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: white;
+    background-image: url("../images/pp_button_bg.jpg");
+    background-repeat:repeat-x;
+    }
 
-    <script type="text/javascript" charset="utf-8">
+a.button1:hover, table.display1 a.button1:hover
+    {
+    color: black;
+    background-image: none;
+    background-color: #BEBA7D;
+    border: 1px solid black;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    }
 
-    // Wait for PhoneGap to load
-    // 
-//    document.addEventListener("deviceready", onDeviceReady, false);
+a.button1:active, table.display1 a.button1:active 
+    {
+    border: 1px solid black;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: green;
+    background-image: none;
+    background-color: rgb(230,220,210);
+    }
 
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
+</style>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<style>
+body    {
+    color: white;
+    background-color: black;
+}
+/* --------Button type styling of links--------    */
+a.button1, table.display1 a.button1
+    {
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 1px 2px;
+    margin: 2px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: white;
+    background-image: url("../images/pp_button_bg.jpg");
+    background-repeat:repeat-x;
+    }
+
+a.button1:hover, table.display1 a.button1:hover
+    {
+    color: black;
+    background-image: none;
+    background-color: #BEBA7D;
+    border: 1px solid black;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    }
+
+a.button1:active, table.display1 a.button1:active 
+    {
+    border: 1px solid black;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: green;
+    background-image: none;
+    background-color: rgb(230,220,210);
+    }
+
+</style>
+<p style="text-align: center; font-weight: bold; text-decoration: underline;">Alec's App(2)</p>
+<br>
+<br>
+
+
+
+
+
+
+<script>
 $(document).ready(function(){
-        checkConnection();
-        
-        
+$.ajaxSetup({
+    timeout: 1000, // Microseconds, for the laughs.  Guaranteed timeout.
+    error: function(request, status, maybe_an_exception_object) {
+        if(status == 'timeout')
+            alert("Internet connection is down!");
+    }
+});
   
-      if(null!= GetQueryStringParams('t')) {
+if(null!= GetQueryStringParams('t')) {
     var t=GetQueryStringParams('t');
      $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
       $("#show_it").html(result);   
@@ -30,25 +117,22 @@ else    {
      }});
 }//t is null 
 
-  
-        
-    })
+});
 
-    function checkConnection() {
-//        var networkState = navigator.connection.type;
-//
-//    if (networkState == Connection.NONE)
-//    {
-//        alert('No network connection!');
-//    }
-//        alert('Connection type: ' + states[networkState]);
-//    }
+function GetQueryStringParams(sParam)    {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
 
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
 
-    </script>
-  </head>
-  <body>
-    <p>A dialog box will report the network state.</p>
-    <div id="show_it"></div>
-  </body>
-</html>
+            return sParameterName[1];
+        }
+    }
+}
+</script>
+<br>
+<div id="show_it"></div>
