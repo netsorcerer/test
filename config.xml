@@ -1,1 +1,4 @@
 <plugin name="NetworkStatus" value="CDVConnection" />
+<feature name="NetworkStatus">
+    <param name="ios-package" value="CDVConnection" />
+</feature>
