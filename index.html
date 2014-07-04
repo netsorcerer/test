@@ -94,49 +94,34 @@ a.button1:active, table.display1 a.button1:active
 
 
 
-<script>
-document.addEventListener("deviceready", onDeviceReady, false);
+<script type="text/javascript" charset="utf-8">
 
-//$(document).ready(function(){
-    
-function onDeviceReady() {
-alert('x');
+    // Wait for PhoneGap to load
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
 
-//    alert('phonegap is ready');
-//$.ajaxSetup({
-//    timeout: 100, // Microseconds, for the laughs.  Guaranteed timeout.
-//    error: function(request, status, maybe_an_exception_object) {
-//        if(status == 'timeout')
-//            alert("Internet connection is down!");
-//    }
-//});
-//if(null!= GetQueryStringParams('t')) {
-var t = getParameterByName('t');
-alert(t);
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
-      $("#show_it").html(result);   
-     }});
-//}       
-//else    {
-    
-//     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
-//      $("#show_it").html(result);   
-//     }});
-//}//t is null 
-// Read a page's GET URL variables and return them as an associative array.
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+    function onDeviceReady() {
+        checkConnection();
+    }
 
-    // Now safe to use the PhoneGap API
-};
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
 
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
 
+        alert('Connection type: ' + states[networkState]);
+    }
 
-</script>
+    </script>
 <br>
 <div id="show_it"></div>
 another div
