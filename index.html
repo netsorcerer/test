@@ -8,13 +8,13 @@
 
     // Wait for PhoneGap to load
     // 
-    document.addEventListener("deviceready", onDeviceReady, false);
 
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
         document.write(checkConnection());
     }
+    document.addEventListener("deviceready", onDeviceReady, false);
 
     function checkConnection() {
         var networkState = navigator.network.connection.type;
