@@ -1,100 +1,10 @@
-<link rel="stylesheet" type="text/css" href="../css/main.css">
-<style>
-body    {
-    color: white;
-    background-color: black;
-}
-/* --------Button type styling of links--------    */
-a.button1, table.display1 a.button1
-    {
-    color: black;
-    border: 1px solid gray;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    padding: 1px 2px;
-    margin: 2px;
-    text-decoration: none;
-    display: inline-block;
-    background-color: white;
-    background-image: url("../images/pp_button_bg.jpg");
-    background-repeat:repeat-x;
-    }
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>navigator.network.connection.type Example</title>
 
-a.button1:hover, table.display1 a.button1:hover
-    {
-    color: black;
-    background-image: none;
-    background-color: #BEBA7D;
-    border: 1px solid black;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    }
-
-a.button1:active, table.display1 a.button1:active 
-    {
-    border: 1px solid black;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    color: green;
-    background-image: none;
-    background-color: rgb(230,220,210);
-    }
-
-</style>
-<script type='text/javascript' src='jq1_9.js'></script>
-<link rel="stylesheet" type="text/css" href="../css/main.css">
-<style>
-body    {
-    color: white;
-    background-color: black;
-}
-/* --------Button type styling of links--------    */
-a.button1, table.display1 a.button1
-    {
-    color: black;
-    border: 1px solid gray;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    padding: 1px 2px;
-    margin: 2px;
-    text-decoration: none;
-    display: inline-block;
-    background-color: white;
-    background-image: url("../images/pp_button_bg.jpg");
-    background-repeat:repeat-x;
-    }
-
-a.button1:hover, table.display1 a.button1:hover
-    {
-    color: black;
-    background-image: none;
-    background-color: #BEBA7D;
-    border: 1px solid black;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    }
-
-a.button1:active, table.display1 a.button1:active 
-    {
-    border: 1px solid black;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    color: green;
-    background-image: none;
-    background-color: rgb(230,220,210);
-    }
-
-</style>
-<p style="text-align: center; font-weight: bold; text-decoration: underline;">Alec's App(2)</p>
-<br>
-<br>
-
-
-
-
-
-
-<script type="text/javascript" charset="utf-8">
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
 
     // Wait for PhoneGap to load
     // 
@@ -103,20 +13,27 @@ a.button1:active, table.display1 a.button1:active
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
-                alert('x');
-
-    var t = getParameterByName('t'); 
-    document.write(t);
+        checkConnection();
     }
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
+
+        alert('Connection type: ' + states[networkState]);
+    }
 
     </script>
-<br>
-<a href="" onclick="return false;" class="button1 conn_checker">check conn</a>
-<div id="show_it"></div>
-another div
+  </head>
+  <body>
+    <p>A dialog box will report the network state.</p>
+  </body>
+</html>
