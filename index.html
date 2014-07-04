@@ -97,10 +97,10 @@ a.button1:active, table.display1 a.button1:active
 <script>
 document.addEventListener("deviceready", onDeviceReady, false);
 
-$(document).ready(function(){
+//$(document).ready(function(){
     
-//function onDeviceReady() {
-
+function onDeviceReady() {
+alert('x');
 
 //    alert('phonegap is ready');
 //$.ajaxSetup({
@@ -110,40 +110,36 @@ $(document).ready(function(){
 //            alert("Internet connection is down!");
 //    }
 //});
-if(null!= GetQueryStringParams('t')) {
-    var t=GetQueryStringParams('t');
+//if(null!= GetQueryStringParams('t')) {
+var t = getUrlVars()["t"];
+alert(t);
      $.ajax({url:"http://a3ptech.com/app/resources_app.php?t="+t,success:function(result){
       $("#show_it").html(result);   
      }});
-}       
-else    {
+//}       
+//else    {
     
-     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
-      $("#show_it").html(result);   
-     }});
-}//t is null 
-
-
-function GetQueryStringParams(sParam)    {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
+//     $.ajax({url:"http://a3ptech.com/app/resources_app.php?",success:function(result){
+//      $("#show_it").html(result);   
+//     }});
+//}//t is null 
+// Read a page's GET URL variables and return them as an associative array.
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
     {
-
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
-
-            return sParameterName[1];
-        }
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
     }
+    return vars;
 }
-
-  
 
 
     // Now safe to use the PhoneGap API
-}
+};
 
 
 
