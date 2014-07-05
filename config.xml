@@ -1,3 +1,5 @@
 <feature name="NetworkStatus">
     <param name="ios-package" value="CDVConnection" />
 </feature>
+<plugin name="NetworkStatus" value="CDVConnection" />
+<plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
