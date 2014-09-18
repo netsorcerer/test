@@ -3,27 +3,6 @@
   <head>
     <title>navigator.network.connection.type Example</title>
 
-    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for PhoneGap to load
-    // 
-
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
-    document.addEventListener("deviceready", myDeviceReady(), false);
-
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
-function myDeviceReady() {
-  alert('help!');
-            if(navigator.network.connection.type == Connection.NONE){
-                alert("nocon");
-            }else{
-                alert("yescon");
-            }
-        }
-    </script>
   </head>
   <body>
     <p>A dialog box will report the network state.</p>
