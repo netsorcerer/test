@@ -8,7 +8,13 @@
     <p>Here goes nothing</p>
     <br>
 <script>
-window.open('https://a3ptech.com/app_2/index.php','_self');
+$(document).ready(function(){
+    $(".ajax_content_opener").click(function(){
+        $.ajax({url:"https://a3ptech.com/app_2/index.php,success:function(result){
+        $('#load').html(result);} 
+        });
+    });
+});
 
 </script>     
 <div id="load">load div</div>
