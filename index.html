@@ -7,8 +7,6 @@
   <body>
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.9.1.js'></script>
 <script type="text/javascript" charset="utf-8">
-
-$(document).ready(function(){
 // Wait for device API libraries to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -34,6 +32,8 @@ $(document).ready(function(){
 
             alert('Connection type: ' + states[networkState]);
         }
+
+$(document).ready(function(){
 $('#load').load('https://a3ptech.com/app_2/index.php');    });
 
 </script>     
