@@ -7,6 +7,8 @@
   <body>
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.9.1.js'></script>
 <script type="text/javascript" charset="utf-8">
+
+$(document).ready(function(){
 // attempt 1 at conn listener
 function checkConnection() {
     var networkState = navigator.connection.type;
@@ -26,8 +28,6 @@ function checkConnection() {
 
 checkConnection();
 //conn listener
-
-$(document).ready(function(){
 
 $('#load').load('https://a3ptech.com/app_2/index.php');    });
 
