@@ -9,12 +9,14 @@
   #the_box  {
     border: 1px solid black;
     background-color: black;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
     color: white;
   }
   a {
     color: white;
+  }
+  .button {
+    background-color: yellow;
+    color: black;
   }
 </style>
   </head>
@@ -43,8 +45,8 @@ $('#load').load('offline.html');
 
 </script>    
 <div id="the_box">
-  <div style="padding-left: 10px; float: left; text-align: left;>The Box </div>
-  <div style="float: right; padding-right: 10px;" id="conn_status"><a href="" onclick="return false;">Use offline</a></div>
+  The Box
+  <div style="float: right; padding-right: 10px;" id="conn_status"><button class="button" onclick="return false;">Use offline</button></div>
 
 </div>
 <div id="load">load div</div>
