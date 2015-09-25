@@ -7,12 +7,12 @@
   <body>
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.9.1.js'></script>
 <script type="text/javascript" charset="utf-8">
+
+$(document).ready(function(){
 var connectionStatus = false;
 
         connectionStatus = navigator.onLine ? 'online' : 'offline';
-        document.getElementById("conn_status").innerHTML = connectionStatus;
-
-$(document).ready(function(){
+        $('#conn_status).innerHTML = connectionStatus;
   
   
   
