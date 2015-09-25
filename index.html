@@ -6,7 +6,15 @@
   #load {
     border: 1px solid red;
   }
-  
+  #the_box  {
+    background-color: black;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+  }
+  a {
+    color: white;
+  }
 </style>
   </head>
   <body>
@@ -33,7 +41,10 @@ $('#load').load('offline.html');
 });
 
 </script>    
-The box iteslf <div style="float: right;" id="conn_status"><a href="" onclick="return false;">Use offline</a></div>
+<div id="the_box">
+  The Box <div style="float: right;" id="conn_status"><a href="" onclick="return false;">Use offline</a></div>
+
+</div>
 <div id="load">load div</div>
   </body>
 </html>
