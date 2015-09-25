@@ -13,12 +13,7 @@
 
     // device APIs are available
     //
-    function onDeviceReady() {
-        checkConnection();
- alert('inside device ready');
-   }
 
-        function checkConnection() {
             var networkState = navigator.connection.type;
 
             var states = {};
@@ -32,7 +27,6 @@
             states[Connection.NONE]     = 'No network connection';
 
             alert('Connection type: ' + states[networkState]);
-        }
 
 $(document).ready(function(){
 $('#load').load('https://a3ptech.com/app_2/index.php');    });
