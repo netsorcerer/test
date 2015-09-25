@@ -10,13 +10,13 @@
 // Wait for device API libraries to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
-alert('after listener');
 
     // device APIs are available
     //
     function onDeviceReady() {
         checkConnection();
-    }
+ alert('inside device ready');
+   }
 
         function checkConnection() {
             var networkState = navigator.connection.type;
