@@ -9,13 +9,12 @@
 <script type="text/javascript" charset="utf-8">
 
 $(document).ready(function(){
-var connectionStatus = false;
-
-        connectionStatus = navigator.onLine ? 'online' : 'offline';
-        if (connectionStatus==false){
-          connectionStatus="Offline";
-        }
-        $('#conn_status').html(connectionStatus);
+//var connectionStatus = false;
+//connectionStatus = navigator.onLine ? 'online' : 'offline';
+//if (connectionStatus==false){
+//  connectionStatus="Offline";
+//}
+//        $('#conn_status').html(connectionStatus);
   
   
   
@@ -26,7 +25,7 @@ $('#load').load('https://a3ptech.com/app_2/index.php');
 });
 
 </script>    
-The box iteslf is: <div id="conn_status">conn_status</div>
+The box iteslf <div style="float: right;" id="conn_status"><a href="offline.html">Use offline</a></div>
 <div id="load">load div</div>
   </body>
 </html>
