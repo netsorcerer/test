@@ -7,10 +7,6 @@
   <body>
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.9.1.js'></script>
 <script type="text/javascript" charset="utf-8">
-
-$(document).ready(function(){
-  
-  
 function checkConnection() {
     var networkState = navigator.connection.type;
 
@@ -28,9 +24,16 @@ function checkConnection() {
 }
 
 checkConnection();  
+
+$(document).ready(function(){
   
   
-$('#load').load('https://a3ptech.com/app_2/index.php');    });
+  
+  
+$('#load').load('https://a3ptech.com/app_2/index.php');   
+
+  
+});
 
 </script>     
 <div id="load">load div</div>
