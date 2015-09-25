@@ -9,26 +9,31 @@
 <script type="text/javascript" charset="utf-8">
 
 $(document).ready(function(){
-// attempt 1 at conn listener
-function checkConnection() {
-    var networkState = navigator.connection.type;
+// Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
 
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        checkConnection();
+    }
 
-    alert('Connection type: ' + states[networkState]);
-}
+        function checkConnection() {
+            var networkState = navigator.connection.type;
 
-checkConnection();
-//conn listener
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
 
+            alert('Connection type: ' + states[networkState]);
+        }
 $('#load').load('https://a3ptech.com/app_2/index.php');    });
 
 </script>     
