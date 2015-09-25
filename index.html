@@ -10,7 +10,6 @@
 var connectionStatus = false;
 
         connectionStatus = navigator.onLine ? 'online' : 'offline';
-        alert(connectionStatus);
 
 $(document).ready(function(){
   
@@ -22,7 +21,8 @@ $('#load').load('https://a3ptech.com/app_2/index.php');
   
 });
 
-</script>     
+</script>    
+The box iteslf is: <script>alert(connectionStatus);</script>
 <div id="load">load div</div>
   </body>
 </html>
