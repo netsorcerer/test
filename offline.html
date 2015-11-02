@@ -5,8 +5,20 @@
       padding: 10px 10px;
     }
   </style>
-Offline Content
+<script type='text/javascript' src='https://code.jquery.com/jquery-1.9.1.js'></script>
+<script>
+    $(document).ready(function(){
+      var stuff=$(#stuff).val();
+      alert(stuff)
+    });
+
+</script>
 <div id="offline_content">
+Offline Content
   Stuff available in Offline mode.
+</div>
+<div>
+  Enter some text to save in the device memory:<br><input type="text" name="stuff" id="stuff"><br><br>
+  <button class="input_saver">Save</button>
 </div>
 </html>
